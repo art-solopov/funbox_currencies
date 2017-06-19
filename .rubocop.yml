@@ -1,0 +1,15 @@
+---
+AllCops:
+  Include:
+  - "**/Rakefile"
+  - "**/config.ru"
+  Exclude:
+  - db/**/*
+  - config/**/*
+  - script/**/*
+  TargetRubyVersion: '2.4'
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+  - app/models/**/*.rb
+Rails:
+  Enabled: true
