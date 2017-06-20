@@ -1,0 +1,14 @@
+default: &default
+  url: 'https://api.fixer.io/latest?base=USD&symbols=RUB'
+  every_hours: 12
+
+development:
+  <<: *default
+  every_hours: 0.1
+
+test:
+  <<: *default
+
+production:
+  <<: *default
+  

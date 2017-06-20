@@ -1,0 +1,40 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.fixer.io/latest?base=USD&symbols=RUB
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.1
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      server:
+      - nginx/1.11.13
+      date:
+      - Tue, 20 Jun 2017 20:21:19 GMT
+      content-type:
+      - application/json
+      content-length:
+      - '53'
+      connection:
+      - close
+      cache-control:
+      - public, must-revalidate, max-age=900
+      last-modified:
+      - Tue, 20 Jun 2017 00:00:00 GMT
+      vary:
+      - Origin
+      x-content-type-options:
+      - nosniff
+    body:
+      encoding: UTF-8
+      string: '{"base":"USD","date":"2017-06-20","rates":{"RUB":59}}'
+    http_version: 
+  recorded_at: Tue, 20 Jun 2017 20:21:19 GMT
+recorded_with: VCR 3.0.3

@@ -66,4 +66,10 @@ RSpec.describe CurrencyRate, type: :model do
       end
     end
   end
+
+  describe '.fetch_data', vcr: { record: :new_episodes } do
+    before { described_class.fetch_data! }
+
+    it { expect(described_class.last.value).to eq(59) }
+  end
 end

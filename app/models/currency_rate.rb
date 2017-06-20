@@ -9,6 +9,12 @@ class CurrencyRate < ApplicationRecord
       .first
   end
 
+  def self.fetch_data!
+    response = Faraday.get(Rails.application.config.currency_rates['url'])
+    data = JSON.parse(response.body)
+    create!(value: data['rates']['RUB'])
+  end
+
   private
 
   def forced_until_should_be_future

@@ -27,5 +27,7 @@ module FunboxCurrencies
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    config.currency_rates = config_for(:currency_rates)
   end
 end
