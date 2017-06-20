@@ -16,6 +16,11 @@ RSpec.describe CurrencyRate, type: :model do
       before { subject.value = -10 }
       it { expect(subject).to be_invalid }
     end
+
+    describe 'forced until should be future' do
+      before { subject.forced_until = 1.day.ago }
+      it { expect(subject).to be_invalid }
+    end
   end
 
   describe '.current' do
