@@ -31,6 +31,9 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Presentation
+gem 'slim-rails'
+
 # Logic & utils
 gem 'faraday'
 gem 'sidekiq'
@@ -40,6 +43,12 @@ gem 'sidekiq-cron'
 gem 'foreman'
 
 gem 'faye'
+
+# Assets
+gem 'jquery-rails'
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

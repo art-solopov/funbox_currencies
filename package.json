@@ -1,5 +1,9 @@
 {
   "name": "funbox_currencies",
   "private": true,
-  "dependencies": {}
+  "dependencies": {},
+  "devDependencies": {
+    "stylelint": "^7.11.1",
+    "stylelint-config-standard": "^16.0.0"
+  }
 }

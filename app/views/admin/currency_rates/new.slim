@@ -1,0 +1,27 @@
+.row
+  .col-sm-12.col-lg-8.col-lg-offset-2
+    = form_for @currency_rate, url: admin_path, html: { class: 'form-horizontal' } do |f|
+      .form-group
+        = f.label :value, class: 'control-label col-sm-3'
+        .col-sm-9
+          .input-group
+            .input-group-addon= '$1 ='
+            = f.text_field :value, class: 'form-control'
+            .input-group-addon руб
+          = error_for(@currency_rate, :value)
+      .form-group
+        = f.label :forced_until, class: 'control-label col-sm-3'
+        .col-sm-9
+          = f.date_field :forced_until, class: 'form-control'
+          = error_for(@currency_rate, :forced_until)
+      .form-group
+        .col-sm-9.col-sm-offset-3
+          = f.submit class: 'btn btn-success'
+
+.row
+  .col-sm-12.col-lg-8.col-lg-offset-2
+    .list-group#previous_values
+      - @previous_values.each do |cr|
+        a.list-group-item href="#"
+          span.badge= cr.forced_until.strftime('%d.%m.%Y %H:%M')
+          span.val= cr.value

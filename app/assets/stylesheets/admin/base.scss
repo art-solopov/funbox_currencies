@@ -1,0 +1,14 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import 'bootstrap-datetimepicker';
+
+.field_with_errors {
+
+    input {
+        border-color: $brand-danger;
+    }
+
+    label {
+        color: $brand-danger;
+    }
+}
