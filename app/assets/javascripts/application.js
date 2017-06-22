@@ -11,3 +11,5 @@
 // about supported directives.
 //
 //
+//= require vue/dist/vue.min.js
+//= require home

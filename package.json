@@ -1,7 +1,10 @@
 {
   "name": "funbox_currencies",
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "normalize.css": "^7.0.0",
+    "vue": "^2.3.4"
+  },
   "devDependencies": {
     "stylelint": "^7.11.1",
     "stylelint-config-standard": "^16.0.0"

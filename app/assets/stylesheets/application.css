@@ -10,6 +10,17 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
+ *= require normalize.css/normalize.css
+ *
+ *= require_tree ./front
+ *= require home
  *= require_self
  */
+
+body {
+    font-size: 18px;
+    font-family: 'PT Sans', sans-serif;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Russo+One&subset=cyrillic');
+@import url('https://fonts.googleapis.com/css?family=PT+Sans:400,700&subset=cyrillic');

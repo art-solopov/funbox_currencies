@@ -1,0 +1,39 @@
+$navbar-bg: #021F77;
+$container-bg: #EEE;
+$container-border: #222;
+
+header {
+    font-family: 'Russo One', sans-serif;
+    margin-bottom: 1rem;
+}
+
+.app-navbar {
+    font-size: 120%;
+    color: white;
+    background: $navbar-bg;
+    padding: 0.5em 1.5em;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: baseline;
+
+    a {
+        color: currentColor;
+        text-decoration: none;
+        flex: 0 0 auto;
+
+        &.app-navbar__brand {
+            font-size: 2rem;
+            flex-grow: 1;
+        }
+    }
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 1em;
+    background: $container-bg;
+    border: 1px solid $container-border;
+    border-radius: 1em;
+}
