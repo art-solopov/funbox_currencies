@@ -29,5 +29,7 @@ module FunboxCurrencies
     config.generators.system_tests = nil
 
     config.currency_rates = config_for(:currency_rates)
+
+    config.faye_server = ENV['FAYE_SERVER']
   end
 end

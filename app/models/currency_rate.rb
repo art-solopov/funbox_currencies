@@ -4,6 +4,8 @@ class CurrencyRate < ApplicationRecord
 
   scope :forced, -> { where.not(forced_until: nil) }
 
+  FAYE_QUEUE = '/funbox_currency_rate'.freeze
+
   def self.current
     where('forced_until IS NULL or forced_until >= ?', Time.current)
       .order('CASE WHEN forced_until IS NULL THEN 1 ELSE 0 END ASC, ' \
@@ -15,6 +17,13 @@ class CurrencyRate < ApplicationRecord
     response = Faraday.get(Rails.application.config.currency_rates['url'])
     data = JSON.parse(response.body)
     create!(value: data['rates']['RUB'])
+  end
+
+  def self.notify_current
+    ExternalService::Faye.publish(
+      FAYE_QUEUE,
+      currentValue: current&.value
+    )
   end
 
   private
