@@ -23,5 +23,5 @@
     .list-group#previous_values
       - @previous_values.each do |cr|
         a.list-group-item href="#" id="prev_val_#{cr.id}"
-          span.badge= cr.forced_until.strftime('%d.%m.%Y %H:%M')
+          span.badge= I18n.l(cr.forced_until)
           span.val= "%.3f" % cr.value

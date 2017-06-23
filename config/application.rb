@@ -33,3 +33,5 @@ module FunboxCurrencies
     config.faye_server = ENV['FAYE_SERVER']
   end
 end
+
+I18n.available_locales = [:en, :ru]

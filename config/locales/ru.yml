@@ -1,0 +1,21 @@
+ru:
+  activerecord:
+    attributes:
+      currency_rate:
+        value: Курс
+        forced_until: Применить до
+
+  time:
+    formats:
+      default: "%d.%m.%Y %H:%M"
+  
+  helpers:
+    admin_name: Администрирование
+    submit:
+      currency_rate:
+        create: Добавить новый обменный курс
+    
+  home:
+    show:
+      exchange_rate: Обменный курс
+      no_exchange: Обменный курс не найден

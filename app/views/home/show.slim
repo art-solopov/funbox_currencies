@@ -1,8 +1,8 @@
-#app_el data-locale=I18n.locale data-value=@value data-faye-server=Rails.application.config.faye_server data-faye-queue=CurrencyRate::FAYE_QUEUE
+#app_el data-value=@value data-faye-server=Rails.application.config.faye_server data-faye-queue=CurrencyRate::FAYE_QUEUE
 
 template#app_template
   article.currency-exchange-app#currency_exchange_app
     template v-if="value"
-      h1 Current exchange rate
+      h1= t('.exchange_rate')
       .exchange-rate= '{{ fmtValue }}'
-    p v-else=true No currency exchange found
+    p v-else=true =t('.no_exchange')
