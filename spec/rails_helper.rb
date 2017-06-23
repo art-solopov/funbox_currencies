@@ -10,6 +10,7 @@ require 'vcr'
 require 'database_cleaner'
 require 'capybara/rspec'
 require 'capybara/poltergeist'
+require 'sidekiq/testing'
 
 VCR.configure do |config|
   config.cassette_library_dir = 'spec/vcr_cassettes'

@@ -75,9 +75,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker'
-end
-
-group :development do
   gem 'pry'
   gem 'pry-rails'
   gem 'pry-doc'

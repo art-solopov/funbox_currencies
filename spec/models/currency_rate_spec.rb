@@ -72,4 +72,31 @@ RSpec.describe CurrencyRate, type: :model do
 
     it { expect(described_class.last.value).to eq(59) }
   end
+
+  describe '#create_notification' do
+    let(:build_options) { {} }
+
+    subject(:record) { build(**build_options) }
+    subject(:queue) { CurrencyRatePublishingWorker.jobs }
+
+    before do
+      queue.clear
+      Timecop.freeze
+    end
+
+    after do
+      Timecop.return
+    end
+
+    it { expect { record.save }.to change(queue, :size).by(1) }
+
+    context 'forced' do
+      let(:forced_time) { 3.days.from_now }
+      let(:build_options) { { forced_until: forced_time } }
+      before { record.save }
+
+      it { expect(queue.size).to eq(2) }
+      it { expect(queue.last['at']).to eq(forced_time.to_f) }
+    end
+  end
 end
