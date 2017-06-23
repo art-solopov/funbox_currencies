@@ -14,10 +14,11 @@ document.addEventListener('DOMContentLoaded', (ev) ->
     }
   )
 
-  SubClient = new Faye.Client(data.fayeServer)
-  SubClient.subscribe(
-    data.fayeQueue,
-    (msg) -> App.value = Number(msg.currentValue)
-  )
-  window.SubClient = SubClient
+  if Boolean(data.fayeServer)
+    SubClient = new Faye.Client(data.fayeServer)
+    SubClient.subscribe(
+      data.fayeQueue,
+      (msg) -> App.value = Number(msg.currentValue)
+    )
+    window.SubClient = SubClient
 )
