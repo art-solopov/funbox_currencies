@@ -1,24 +1,22 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A qualification assignment — a currency exchange service with pub/sub.
 
-Things you may want to cover:
+This app was developed and tested on Ruby 2.4.0.
 
-* Ruby version
+## How to run
 
-* System dependencies
+1. Install Ruby & bundler
+1. Install PostgreSQL
+1. Install Redis
+1. `bundle install`
+1. `rake db:create`
+1. `rake db:schema:load`
+1. `yarn install`
+1. `foreman start`
 
-* Configuration
+## How to test
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. Make sure all the above dependencies are installed.
+1. Install PhantomJS.
+1. `rails spec`
