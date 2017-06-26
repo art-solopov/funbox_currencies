@@ -7,8 +7,8 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-    <% if (faye_server = Rails.application.config.faye_server).present? %>
-        <script type="text/javascript" src="<%= faye_server %>/client.js"></script>
+    <% if (pusher_app = Pusher.app_id).present? %>
+        <script src="https://js.pusher.com/4.0/pusher.min.js"></script>
     <% end %>
   </head>
 

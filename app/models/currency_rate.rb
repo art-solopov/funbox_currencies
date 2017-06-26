@@ -6,7 +6,7 @@ class CurrencyRate < ApplicationRecord
 
   scope :forced, -> { where.not(forced_until: nil) }
 
-  FAYE_QUEUE = '/funbox_currency_rate'.freeze
+  QUEUE = 'funbox_currency_rate'.freeze
 
   def self.current
     where('forced_until IS NULL or forced_until >= ?', Time.current)
@@ -22,8 +22,9 @@ class CurrencyRate < ApplicationRecord
   end
 
   def self.notify_current
-    ExternalService::Faye.publish(
-      FAYE_QUEUE,
+    ExternalService::Publish.publish(
+      QUEUE,
+      :current,
       currentValue: current&.value
     )
   end

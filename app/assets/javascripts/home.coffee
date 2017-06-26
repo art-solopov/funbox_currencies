@@ -14,11 +14,14 @@ document.addEventListener('DOMContentLoaded', (ev) ->
     }
   )
 
-  if Boolean(data.fayeServer)
-    SubClient = new Faye.Client(data.fayeServer)
-    SubClient.subscribe(
-      data.fayeQueue,
-      (msg) -> App.value = Number(msg.currentValue)
-    )
+  if Boolean(data.pusherKey)
+    Pusher.logToConsole = true;
+
+    SubClient = new Pusher(data.pusherKey, { cluster: 'eu', encrypted: true })
+    SubChannel = SubClient.subscribe(data.queue)
+
+    SubChannel.bind('current', (data) -> App.value = Number(data.currentValue))
+    
     window.SubClient = SubClient
+    window.SubChannel = SubChannel
 )

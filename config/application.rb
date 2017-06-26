@@ -29,8 +29,6 @@ module FunboxCurrencies
     config.generators.system_tests = nil
 
     config.time_zone = 'Moscow'
-
-    config.faye_server = ENV['FAYE_SERVER']
   end
 end
 
